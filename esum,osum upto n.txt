@@ -1,0 +1,29 @@
+--QUERY:To find esum and osum upto n
+--PL/SQL Block:
+declare
+	n int;
+	esum int:=0;
+	osum int:=0;
+	i int;
+begin
+	n:=&n;
+	for i in 1..n
+	loop
+	 if mod(i,2)=0 then
+	    esum:=esum+i;
+	 else
+	    osum:=osum+i;
+	end if;
+	end loop;
+	dbms_output.put_line('EVEN SUM:'||esum||chr(10)||'ODD SUM:'||osum);
+end;
+/
+--output:
+Enter value for n: 10
+old   7:        n:=&n;
+new   7:        n:=10;
+EVEN SUM:30
+ODD SUM:25
+PL/SQL procedure successfully completed.
+edit
+/
